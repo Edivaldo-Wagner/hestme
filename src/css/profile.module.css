@@ -1,0 +1,563 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    overflow: auto;
+    margin:0px;
+    height: 100%
+}
+
+.container_icone_sino{
+  cursor: pointer;
+  margin-top: 60px
+}
+
+.container_icone_sino:hover{
+  background-color: #bd4409;
+}
+
+@media only screen and (max-width: 945px){
+  .all_container{
+    margin-left: 0px;
+  }
+
+
+  .container_agendamentos .ul .container_graficos {
+    list-style: none;
+    width: 100%; /* Ajustei a largura para ocupar 50% do container com margens de 10px em cada lado */
+    margin: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2)
+  }
+  
+
+
+ 
+  
+  .container_lembretes{
+    width: 100%;
+    list-style: none;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.2)
+  }
+  
+  
+}
+
+
+
+
+
+
+.container_agendamentos {
+  width: 100%;
+  display: flex;
+  backgrund: red;
+  justify-content: center;
+}
+
+.container_agendamentos .ul {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0; /* Removi o padding padrão da lista para evitar espaçamento extra */
+  margin: 0; /* Removi a margem padrão da lista para evitar espaçamento extra */
+}
+
+.container_agendamentos .ul .container_graficos {
+  list-style: none;
+  width: calc(50% - 20px); /* Ajustei a largura para ocupar 50% do container com margens de 10px em cada lado */
+  margin: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2)
+}
+
+.container_proximo_cliente{
+  width: calc(65% - 20px);
+  list-style: none;
+  margin: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2)
+}
+
+.container_lembretes{
+  width: calc(35% - 20px);
+  list-style: none;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.2)
+}
+
+
+
+
+.dash_header{
+  width: 100%;
+  height: 70px;
+   border-Bottom: 1px solid rgba(0, 0, 0, 0.2)
+}
+
+.icone_sino{
+  position: absolute;
+  margin: 26px 30px
+
+}
+
+
+
+.titulo_agendamento{
+  position: relative; 
+  width: 100%;
+  display: flex;
+  top: 25px;
+  margin-left: 70px;
+  font-size: 20px;
+  color: #353738; 
+  
+}
+
+.btn_hoje{
+  position: absolute;
+  float: right;
+  right: 20px;
+  width: 90px; 
+  height: 40px;
+  cursor: pointer;
+  margin-top: -5px; 
+  border-radius: 5px;
+  background: transparent;
+  border: 1px solid rgb(255, 84, 0)
+}
+
+.btn_hoje:hover{
+  background-color: rgba(127, 127, 127 , 0.2)
+}
+
+.agenda_semanal{
+  width: 100%;
+  height: 80px;
+}
+
+.agenda_semanal ul{
+  position:relative;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2)
+}
+
+.agenda_semanal ul li{
+  list-style:none;
+  width: 40%;
+  text-align: center;
+  padding-top: 20px;
+  color: #808080;
+  border-left: 1px solid rgba(0, 0, 0, 0.2)
+}
+
+.agenda_semanal ul li:hover{
+  cursor: pointer;
+  background-color: rgba(127, 127, 127 , 0.2)
+}
+
+.container_agendamentos .ul .container_graficos {
+  list-style: none;
+  width: calc(48% - 20px); /* Ajustei a largura para ocupar quase 50% do container com margens de 10px em cada lado */
+  height: 80px;
+  margin: 10px;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  box-sizing: border-box; /* Adicione isso para incluir as bordas no cálculo da largura */
+}
+
+.container_agendamentos .ul .container_graficos:hover{
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.container_agendamentos .ul .container_graficos .content {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 100%; /* Certifique-se de que o contêiner ocupe 100% da altura disponível */
+}
+
+
+
+
+.container_proximo_cliente{
+  width: calc(65% - 20px);
+  list-style: none;
+  width: 100%;
+  margin: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.7);
+  padding-left: 40px;
+  border-radius: 5px;
+  height: 40px;
+  display: flex;
+  color: #353738;
+  align-items: center;
+  outline:none;
+}
+
+.container_proximo_cliente:hover{
+  border: 1px solid rgba(255, 84, 0, 0.7);
+}
+
+.container_btns{ 
+  border: none;
+margin-top: 15px;
+border-radius: 5px;
+background-color: rgb(255, 84, 0);
+height: 40px;
+display: flex; 
+align-items: center
+}
+
+.container_btns:hover{
+  background-color: #bd4409;
+} 
+
+.btns{
+  cursor: pointer;
+   flex: 1;
+  margin-top: 7px;
+  text-align: center;
+  color: #fff;
+  font-size: 14px
+}
+
+.iconesino{
+  position: relative;
+  margin-left: 20px;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 19px
+}
+
+.descs{
+  flex: 1;
+  margin-top: 7px;
+  margin-left: 40px;
+  color: #353738;
+  font-size: 1px; 
+  cursor: pointer
+}
+
+.container_lembretes{
+  width: calc(35% - 20px);
+  list-style: none;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.2)
+}
+
+@media only screen and (max-width: 399px){
+
+  .container_agendamentos .ul {
+    position: relative;
+    width: 90%;
+    padding: 0;
+    margin: 0;
+    left: -10px
+}
+
+.container_proximo_cliente{
+  font-size: 14px;
+}
+
+.container_icone_sino{
+  margin-top: 10px;
+   margin-left: 0px;
+   background-color: rgb(255, 84, 0);
+  border-radius: 50px;
+  width: 40px;
+  height: 40px;
+   display: flex;
+   justify-content: center;
+   align-items: center
+}
+
+.container_agendamentos .ul{
+  margin-left: 0px;
+}
+
+.titulo_agendamento{
+  position: relative; 
+  width: 100%;
+  display: flex;
+  top: 25px;
+  margin-left: 0px;
+  font-size: 20px;
+  color: #353738; 
+  
+}
+
+.descs{
+  position: relative; 
+  flex: 1;
+  top:10px;
+  margin-top: 10px;
+  margin-left: -30px;
+  color: #353738;
+  font-size: 15px; 
+}
+
+.iconesino{
+  position: relative;
+  margin-left: 20px;
+  top: 45px;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 19px
+}
+
+.border_bottom{
+  margin: 30px 15px;
+}
+
+.container_btns{ 
+  margin-left: 10px;
+  width: 100%
+
+}
+
+}
+
+@media only screen and (min-width: 400px) and (max-width: 719px){
+
+
+  .all_container{
+  margin-left: 280px;
+}
+
+  .container_agendamentos .ul {
+    position: relative;
+    width: 400px;
+    padding: 0;
+    margin: 0;
+    left: -45px
+}
+
+.container_proximo_cliente{
+  font-size: 14px;
+}
+
+.container_icone_sino{
+  margin-top: 10px;
+   margin-left: 0px;
+   background-color: rgb(255, 84, 0);
+  border-radius: 50px;
+  width: 40px;
+  height: 40px;
+   display: flex;
+   justify-content: center;
+   align-items: center
+}
+
+.container_agendamentos .ul{
+  margin-left: -220px;
+}
+
+.titulo_agendamento{
+  position: relative; 
+  width: 100%;
+  display: flex;
+  top: 25px;
+  margin-left: 0px;
+  font-size: 20px;
+  color: #353738; 
+  
+}
+
+.descs{
+  position: relative; 
+  flex: 1;
+  top:10px;
+  margin-top: 10px;
+  margin-left: -30px;
+  color: #353738;
+  font-size: 15px; 
+}
+
+.iconesino{
+  position: relative;
+  margin-left: 20px;
+  top: 45px;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 19px
+}
+
+.border_bottom{
+  margin: 30px 15px;
+}
+
+.container_btns{ 
+  margin-left: 10px;
+  width: 100%
+
+}
+
+}
+
+
+@media only screen and (min-width: 720px) and (max-width: 999px){
+
+  .all_container{
+  margin-left: 260px;
+}
+
+  .container_agendamentos .ul {
+    position: relative;
+    width: 600px;
+    padding: 0;
+    margin: 0;
+    left: -45px
+}
+
+.container_proximo_cliente{
+  font-size: 14px;
+}
+
+.container_icone_sino{
+  margin-top: 10px;
+   margin-left: 0px;
+   background-color: rgb(255, 84, 0);
+  border-radius: 50px;
+  width: 40px;
+  height: 40px;
+   display: flex;
+   justify-content: center;
+   align-items: center
+}
+
+.container_agendamentos .ul{
+  margin-left: -220px;
+}
+
+.titulo_agendamento{
+  position: relative; 
+  width: 100%;
+  display: flex;
+  top: 25px;
+  margin-left: 0px;
+  font-size: 20px;
+  color: #353738; 
+  
+}
+
+.descs{
+  position: relative; 
+  flex: 1;
+  top:10px;
+  margin-top: 10px;
+  margin-left: -30px;
+  color: #353738;
+  font-size: 15px; 
+}
+
+.iconesino{
+  position: relative;
+  margin-left: 20px;
+  top: 45px;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 19px
+}
+
+.border_bottom{
+  margin: 30px 15px;
+}
+
+.container_btns{ 
+  margin-left: 10px;
+  width: 100%
+
+}
+
+}
+
+
+@media only screen and (min-width: 1000px){
+
+  .all_container{
+  margin-left: 290px;
+}
+
+  .container_agendamentos .ul {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Ou use "space-between" se preferir espaçamento nas extremidades */
+    width: 70%;
+    padding: 0;
+    margin: 0;
+}
+
+.container_proximo_cliente{
+  font-size: 14px;
+}
+
+.container_icone_sino{
+  margin-top: 10px;
+   margin-left: 0px;
+   background-color: rgb(255, 84, 0);
+  border-radius: 50px;
+  width: 40px;
+  height: 40px;
+   display: flex;
+   justify-content: center;
+   align-items: center
+}
+
+.container_agendamentos .ul{
+  margin-left: -220px;
+}
+
+.titulo_agendamento{
+  position: relative; 
+  width: 100%;
+  display: flex;
+  top: 25px;
+  margin-left: 0px;
+  font-size: 20px;
+  color: #353738; 
+  
+}
+
+.descs{
+  position: relative; 
+  flex: 1;
+  top:10px;
+  margin-top: 10px;
+  margin-left: -30px;
+  color: #353738;
+  font-size: 15px; 
+}
+
+.iconesino{
+  position: relative;
+  margin-left: 20px;
+  top: 45px;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 19px
+}
+
+.border_bottom{
+  margin: 30px 15px;
+}
+
+.container_btns{ 
+  margin-left: 10px;
+  width: 100%
+
+}
+
+}

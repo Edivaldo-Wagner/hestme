@@ -1,0 +1,240 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    overflow: auto;
+    margin:0px;
+}
+
+@media only screen and (max-width: 945px){
+  .all_container{
+    margin-left: 0px;
+  }
+
+  .container_agendamentos {
+    width: 100%;
+    max-width: 100%; /* Adicionei um valor máximo para o container */
+    margin: 5px auto; /* Centraliza o container na página */
+    display: flex;
+    justify-content: center;
+  }
+  
+  .container_agendamentos .ul {
+    position: relative;
+    display: flex;
+    flex-wrap: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 0; /* Removi o padding padrão da lista para evitar espaçamento extra */
+    margin: 0; /* Removi a margem padrão da lista para evitar espaçamento extra */
+  }
+
+  .container_agendamentos .ul .container_graficos {
+    list-style: none;
+    width: 100%; /* Ajustei a largura para ocupar 50% do container com margens de 10px em cada lado */
+    height: 260px;
+    margin: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2)
+  }
+  
+  .container_proximo_cliente{
+    width: 100%;
+    list-style: none;
+    height: 320px;
+    margin: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2)
+  }
+  
+  .container_lembretes{
+    width: 100%;
+    list-style: none;
+    height: 260px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.2)
+  }
+  
+  
+}
+
+
+@media only screen and (min-width: 946px){
+
+.all_container{
+  margin-left: 290px;
+}
+
+.container_agendamentos {
+  width: 100%;
+  max-width: 1200px; /* Adicionei um valor máximo para o container */
+  margin: 5px auto; /* Centraliza o container na página */
+  display: flex;
+  justify-content: center;
+}
+
+.container_agendamentos .ul {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  padding: 0; /* Removi o padding padrão da lista para evitar espaçamento extra */
+  margin: 0; /* Removi a margem padrão da lista para evitar espaçamento extra */
+}
+
+.container_agendamentos .ul .container_graficos {
+  list-style: none;
+  width: calc(50% - 20px); /* Ajustei a largura para ocupar 50% do container com margens de 10px em cada lado */
+  height: 260px;
+  margin: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2)
+}
+
+.container_proximo_cliente{
+  width: calc(65% - 20px);
+  list-style: none;
+  height: 320px;
+  margin: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2)
+}
+
+.container_lembretes{
+  width: calc(35% - 20px);
+  list-style: none;
+  height: 260px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.2)
+}
+
+
+}
+
+.menu{
+position:absolute;
+width:300px;
+height: 100%;
+margin:0px;
+border: 1px solid rgba(0, 0, 0 , 0.2)
+}
+
+.dash_header{
+  width: 100%;
+  height: 70px;
+   border-Bottom: 1px solid rgba(0, 0, 0, 0.2)
+}
+
+.icone_sino{
+  position: absolute;
+  margin: 26px 30px
+
+}
+
+.titulo_agendamento{
+  position: relative; 
+  width: 100%;
+  display: flex;
+  top: 20px;
+  right:25px;
+  justify-content: center;
+  font-size: 20px;
+  color: #353738; 
+  
+}
+
+.btn_hoje{
+  position: absolute;
+  float: right;
+  right: 20px;
+  width: 70px; 
+  height: 40px;
+  cursor: pointer;
+  margin-top: -15px; 
+  border-radius: 5px;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.6)
+}
+
+.btn_hoje:hover{
+  background-color: rgba(127, 127, 127 , 0.2)
+}
+
+.agenda_semanal{
+  width: 100%;
+  height: 80px;
+}
+
+.agenda_semanal ul{
+  position:relative;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2)
+}
+
+.agenda_semanal ul li{
+  list-style:none;
+  width: 40%;
+  text-align: center;
+  padding-top: 20px;
+  color: #808080;
+  border-left: 1px solid rgba(0, 0, 0, 0.2)
+}
+
+.agenda_semanal ul li:hover{
+  cursor: pointer;
+  background-color: rgba(127, 127, 127 , 0.2)
+}
+
+
+
+
+@media only screen and (min-width: 1230px){
+  .container_agendamentos .ul {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80%;
+    padding: 0; /* Removi o padding padrão da lista para evitar espaçamento extra */
+    margin: 0; /* Removi a margem padrão da lista para evitar espaçamento extra */
+  }
+  
+  .container_agendamentos .ul .container_graficos {
+    list-style: none;
+    width: calc(50% - 20px); /* Ajustei a largura para ocupar 50% do container com margens de 10px em cada lado */
+    height: 260px;
+    margin: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2)
+  }
+
+  .container_proximo_cliente{
+    width: calc(65% - 20px);
+    list-style: none;
+    height: 320px;
+    margin: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2)
+  }
+
+  .container_lembretes{
+    width: calc(35% - 20px);
+    list-style: none;
+    height: 260px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.2)
+  }
+
+}
