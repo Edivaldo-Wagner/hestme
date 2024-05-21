@@ -8,29 +8,7 @@ body{
     font-family: 'Poppins', sans-serif;
     overflow: auto;
     margin:0px;
-    height: 100%
-}
-
-.containerModal{
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  width: 100%;
-  height: 900px;
-  overflow: hidden;
-  background: #fff;
-}
-
-.containerModalDelete{
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: rgba(0, 0, 0, 0.8);
+    height: 100%;
 }
 
 .container_icone_sino{
@@ -60,6 +38,10 @@ body{
     border: 1px solid rgba(0, 0, 0, 0.2)
   }
   
+
+
+ 
+  
   .container_lembretes{
     width: 100%;
     list-style: none;
@@ -69,37 +51,12 @@ body{
     justify-content: center;
     border: 1px solid rgba(0, 0, 0, 0.2)
   }
-   
+  
   
 }
 
-.container_form_modal {
-  width: 100%;
-  display: flex;
-  backgrund: red;
-  justify-content: center;
-}
-
-.container_delete_modal {
-  position: fixed;
-  top: 0px;
-  left: 50%;
-  width: 90%;
-  display: flex;
-  background: #fff;
-  transform: translateX(-50%);
-  justify-content: center;
-}
 
 
-.container_form_modal .ul{
-   position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 0; /* Removi o padding padrão da lista para evitar espaçamento extra */
-  margin: 0;
-}
 
 
 
@@ -310,19 +267,6 @@ align-items: center
 
 @media only screen and (max-width: 399px){
 
-  .container_delete_modal {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  height: 250px;
-  width: 90%;
-  display: flex;
-  background: #fff;
-  border-radius: 20px;
-  transform: translateX(-50%);
-  justify-content: center;
-}
-
   .container_agendamentos .ul {
     position: relative;
     width: 90%;
@@ -330,14 +274,6 @@ align-items: center
     margin: 0;
     left: -10px
 }
-
-.container_form_modal .ul{
-   position: relative;
-    width: 90%;
-    padding: 0;
-    margin: 0;
-    left: -10px
-  }
 
 .container_proximo_cliente{
   font-size: 14px;
@@ -356,10 +292,6 @@ align-items: center
 }
 
 .container_agendamentos .ul{
-  margin-left: 0px;
-}
-
-.container_form_modal .ul{
   margin-left: 0px;
 }
 
@@ -401,7 +333,7 @@ align-items: center
   width: 100%
 
 }
- 
+
 }
 
 @media only screen and (min-width: 400px) and (max-width: 719px){
@@ -411,19 +343,6 @@ align-items: center
   margin-left: 280px;
 }
 
-.container_delete_modal {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  height: 200px;
-  width: 90%;
-  display: flex;
-  background: #fff;
-  border-radius: 20px;
-  transform: translateX(-50%);
-  justify-content: center;
-}
-
   .container_agendamentos .ul {
     position: relative;
     width: 400px;
@@ -431,15 +350,6 @@ align-items: center
     margin: 0;
     left: -45px
 }
-
-.container_form_modal .ul{
-  position: relative;
-    width: 400px;
-    padding: 0;
-    margin: 0;
-    left: -45px
-}
-
 
 .container_proximo_cliente{
   font-size: 14px;
@@ -460,11 +370,6 @@ align-items: center
 .container_agendamentos .ul{
   margin-left: -220px;
 }
-
-.container_form_modal .ul{
-  margin-left: 70px;
-
-  }
 
 .titulo_agendamento{
   position: relative; 
@@ -514,19 +419,6 @@ align-items: center
   margin-left: 260px;
 }
 
-.container_delete_modal {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  height: 200px;
-  width: 600px;
-  display: flex;
-  background: #fff;
-  border-radius: 20px;
-  transform: translateX(-50%);
-  justify-content: center;
-}
-
   .container_agendamentos .ul {
     position: relative;
     width: 600px;
@@ -534,14 +426,6 @@ align-items: center
     margin: 0;
     left: -45px
 }
-
-.container_form_modal .ul{
-  position: relative;
-    width: 600px;
-    padding: 0;
-    margin: 0;
-    left: -45px
-  }
 
 .container_proximo_cliente{
   font-size: 14px;
@@ -560,12 +444,8 @@ align-items: center
 }
 
 .container_agendamentos .ul{
-  margin-left: -230px;
+  margin-left: -220px;
 }
-
-.container_form_modal .ul{
-  margin-left: 55px;
-  }
 
 .titulo_agendamento{
   position: relative; 
@@ -615,37 +495,15 @@ align-items: center
   margin-left: 290px;
 }
 
-.container_delete_modal {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  height: 200px;
-  width: 600px;
-  display: flex;
-  background: #fff;
-  border-radius: 20px;
-  transform: translateX(-50%);
-  justify-content: center;
-}
-
   .container_agendamentos .ul {
     position: relative;
     display: flex;
-    justify-content: center; /* Ou use "space-between" se preferir espaçamento nas extremidades */
-    width: 70%;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Ou use "space-between" se preferir espaçamento nas extremidades */
+    width: 50%;
     padding: 0;
     margin: 0;
 }
-
-.container_form_modal .ul{
-  position: relative;
-    display: flex;
-    justify-content: center; /* Ou use "space-between" se preferir espaçamento nas extremidades */
-    width: 70%;
-    padding: 0;
-    margin: 0;
-}
-
 
 .container_proximo_cliente{
   font-size: 14px;
@@ -664,12 +522,7 @@ align-items: center
 }
 
 .container_agendamentos .ul{
-  margin-left: -230px;
-}
-
-.container_form_modal .ul{
-  margin-left: -80px;
-
+  margin-left: -220px;
 }
 
 .titulo_agendamento{
