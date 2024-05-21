@@ -169,14 +169,17 @@ const Settings = () => {
  
 </Link>
 
-<li className={styles.container_proximo_cliente}>
+<Link to="/settings/help" className={styles.container_proximo_cliente} style={{textDecoration: 'none'}}> 
 
+<li style={{ textAlign: 'left', width: '100%' }}>
 
   <FontAwesomeIcon className={styles.iconesino} icon={faQuestionCircle}/>
 
-  <label className={styles.descs}>Ajuda</label>
+  <label className={styles.descs} style={{ marginLeft: '41px' }}>Ajuda</label>
 
 </li>
+
+</Link>
 
 <Link to="/business/bio" className={styles.container_proximo_cliente} style={{ border: 'none', textDecoration: 'none', marginTop: '10px', borderRadius: '5px', backgroundColor: 'rgb(255, 84, 0)', height: '40px', display: 'flex', alignItems: 'center' }}>
 
@@ -186,7 +189,7 @@ const Settings = () => {
 
 </Link>
 
-<Link to="/settings/customization" className={styles.container_proximo_cliente} style={{ border: 'none', textDecoration: 'none', marginTop: '10px', borderRadius: '5px', backgroundColor: 'rgb(255, 84, 0)', height: '40px', display: 'flex', alignItems: 'center' }}>
+<Link to="/settings/customization" className={styles.container_proximo_cliente} style={{ border: 'none', textDecoration: 'none', marginTop: '0px', borderRadius: '5px', backgroundColor: 'rgb(255, 84, 0)', height: '40px', display: 'flex', alignItems: 'center' }}>
 
   <label style={{ flex: 1, marginTop: '7px', textAlign: 'center',  color: '#fff', fontSize: '14px' }}>Configurar página comercial</label>
 

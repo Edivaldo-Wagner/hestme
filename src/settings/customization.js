@@ -22,7 +22,7 @@ const Settings = () => {
       };
       reader.readAsDataURL(file);
     }
-  };
+  }; 
 
   const handleImageRemove = () => {
     setImageSrc('https://centrechurch.org/wp-content/uploads/2022/03/img-person-placeholder.jpeg');
