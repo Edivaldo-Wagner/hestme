@@ -6,18 +6,18 @@ import LogoDash from './../img/logo-dashboard.svg'
 import  styles from './../css/dashboard.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faWallet, faCalendar, faTasks, faCog, faBell, faUserCircle, faClock, faLock, faChevronLeft, faChevronRight, faPlusCircle  } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faWallet, faCalendar, faTasks, faCog, faTimes, faBell, faUserCircle, faHandHoldingUsd, faClock, faLock, faChevronLeft, faChevronRight, faPlusCircle  } from '@fortawesome/free-solid-svg-icons';
 import * as echarts from 'echarts';
-
+import Modal from 'react-modal';
 
 const Dashboard = () => {
 
 
   const Navigate = useNavigate();
-
-    const [dados, setDados] = useState('');
-
-
+  const [dados, setDados] = useState('');
+  const [isModalCadastroOpen, setModalCadastroOpen] = useState(true)
+  const openCadastroModal = () => setModalCadastroOpen(true);
+  const closeCadastroModal = () => setModalCadastroOpen(false);
 
   useEffect(() => {
 
@@ -161,10 +161,90 @@ const Dashboard = () => {
   return (
     <>
 
+    <Modal isOpen={isModalCadastroOpen} className={styles.containerModal}>
+
+      <FontAwesomeIcon onClick={closeCadastroModal} icon={faTimes} style={{ position: 'relative', color: 'rgb(255, 84, 0)', float: 'right', right: '25px', marginTop: '17px', fontSize: '26px' }} />
+
+        <div style={{ textAlign: 'center', borderBottom: '1px solid rgba(0, 0, 0, 0.2)', width: '100%', fontSize: '24px', color: '#353738', paddingTop: '15px' }}><label style={{ position: 'relative', top: '-3px', color: '#353738' }}>Próximos clientes </label></div>
+
+            <div className={styles.container_form_modal} style={{ height: '650px',  overflowY: 'scroll' }}>
+
+            <div className={styles.ul}>
+
+
+            <div className={styles.containerModalDesc} style={{ color: '#353738', paddingTop: '15px' }}>
+           
+            <div style={{ position: 'relative', borderBottom: '1px solid rgba(0, 0, 0, 0.2)', width: '100%', color: '#353738', fontSize: '25px' }}>Detalhes</div>
+
+            <div style={{ position: 'relative', borderBottom: '1px solid rgba(0, 0, 0, 0.2)', paddingTop: '10px', marginTop: '30px', width: '100%', color: 'rgb(85, 67, 59)', fontSize: '15px' }}>
+
+              <div><b>Cliente:</b> Ataide Bastos</div>
+
+              <FontAwesomeIcon onClick={closeCadastroModal} icon={faUserCircle} style={{ position: 'relative', color: 'rgb(85, 67, 59)', float: 'left', left: '-12px', margin: '-10px -20px', fontSize: '19px' }} />
+
+              <div style={{marginTop: '2px'}}><b>Agendamento:</b> 5/21/2024</div>
+
+            </div>
+
+            <div style={{ position: 'relative', borderBottom: '1px solid rgba(0, 0, 0, 0.2)', paddingTop: '10px', width: '100%', color: 'rgb(85, 67, 59)', fontSize: '15px' }}>
+
+              <div><b>Profissional:</b> João Sousa</div>
+
+              <FontAwesomeIcon onClick={closeCadastroModal} icon={faClock} style={{ position: 'relative', color: 'rgb(85, 67, 59)', float: 'left', left: '-12px', margin: '0px -20px', fontSize: '19px' }} />
+
+              <div style={{marginTop: '2px'}}><b>Horário:</b> 08:30h - 09:30h</div>
+
+              <div style={{marginTop: '2px'}}><b>Serviço:</b> Corte</div>
+
+            </div>
+
+            <div style={{ position: 'relative', borderBottom: '1px solid rgba(0, 0, 0, 0.2)', paddingTop: '10px', width: '100%', color: 'rgb(85, 67, 59)', fontSize: '15px' }}>
+
+              <div><b>Profissional:</b> João Sousa</div>
+
+              <FontAwesomeIcon onClick={closeCadastroModal} icon={faClock} style={{ position: 'relative', color: 'rgb(85, 67, 59)', float: 'left', left: '-12px', margin: '0px -20px', fontSize: '19px' }} />
+
+              <div style={{marginTop: '2px'}}><b>Horário:</b> 08:30h - 09:30h</div>
+
+              <div style={{marginTop: '2px'}}><b>Serviço:</b> Selagem</div>
+
+            </div>
+
+            <div style={{ position: 'relative', paddingTop: '10px', width: '100%', color: 'rgb(85, 67, 59)', fontSize: '15px' }}>
+
+              <div><b>Pagamento:</b> Via Pix</div>
+
+              <FontAwesomeIcon onClick={closeCadastroModal} icon={faHandHoldingUsd} style={{ position: 'relative', color: 'rgb(85, 67, 59)', float: 'left', left: '-12px', margin: '20px -20px', fontSize: '19px' }} />
+
+              <div style={{marginTop: '2px'}}><b>Telefone:</b> (99) 99999-9999</div>
+
+              <div style={{marginTop: '2px'}}><b>E-mail:</b> marcos@marcos.com</div>
+
+              <div style={{marginTop: '2px'}}><b>Data da compra:</b> 30/02/2023</div>
+
+              <div style={{marginTop: '2px'}}><b>Horário da compra:</b> 18:45h</div>
+
+            </div>
+
+            <div style={{ width: '100%', padding: '10px 0px', marginTop: '40px', textAlign: 'center', color: '#fff', backgroundColor: 'rgb(255, 84, 0)' }}>
+
+              Codigo: MXP0203
+
+            </div>
+
+            </div>
+
+</div> {/*container_agendamentos ul*/}
+
+  </div> {/*container_agendamentos*/}
+          
+
+      </Modal> {/*containerModal*/}
+
       <Header className={styles.header_menu}/>
       <div className={styles.all_container}>
 
-      
+        
 
       <div class={styles.dash_header}>
 
@@ -247,8 +327,9 @@ const Dashboard = () => {
             
             <li className={styles.container_proximo_cliente}>
 
-            <FontAwesomeIcon className={styles.icone_sino} icon={faPlusCircle} style={{ position: 'relative', marginTop: '70px', right: '10px', float: 'right', color: '#808080', fontSize: '30px',  }} />
+            <FontAwesomeIcon className={styles.icone_sino} icon={faHandHoldingUsd} style={{ position: 'relative', cursor: 'pointer', marginTop: '70px', right: '10px', float: 'right', color: '#808080', fontSize: '25px',  }} />
 
+            <FontAwesomeIcon onClick={openCadastroModal} className={styles.icone_sino} icon={faPlusCircle} style={{ position: 'relative', cursor: 'pointer', marginTop: '70px', right: '-40px', float: 'right', color: '#808080', fontSize: '25px',  }} />
 
               <ul>
                 <div style={{ margin: '15px 20px', color: '#353738' }}><b>Próximos cliente</b></div>
