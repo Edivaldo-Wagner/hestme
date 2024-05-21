@@ -15,7 +15,7 @@ const Dashboard = () => {
 
   const Navigate = useNavigate();
   const [dados, setDados] = useState('');
-  const [isModalCadastroOpen, setModalCadastroOpen] = useState(true)
+  const [isModalCadastroOpen, setModalCadastroOpen] = useState(false)
   const openCadastroModal = () => setModalCadastroOpen(true);
   const closeCadastroModal = () => setModalCadastroOpen(false);
 
