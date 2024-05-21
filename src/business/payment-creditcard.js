@@ -5,7 +5,7 @@ import Logo from './../img/logo.svg'
 import LogoDash from './../img/logo-dashboard.svg'
 import NoImg from './../img/no-img.png'
 import { Link, useNavigate } from 'react-router-dom';
-import  styles from './../css/confirmation-service.module.css';
+import  styles from './../css/payment-pix.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import TelefoneMaskProfressional from './../mask-input-edit-professional/index';
 import { faHome, faWallet, faCalendar, faTasks, faCog, faBell, faImages, faUserCircle, faClock, faLock, faChevronLeft, faChevronRight, faPlusCircle, faSortAmountUp, faEuroSign, faQrcode, faPaperPlane, faCoins, faCopy, faBarcode, faMoneyCheckAlt, faHandHoldingUsd, faDatabase, faBalanceScale, faCheck, faUserNurse, faToolbox, faStar, faFileContract, faQuestionCircle, faStore, faTools    } from '@fortawesome/free-solid-svg-icons';
@@ -19,12 +19,6 @@ const Settings = () => {
 
   const [servicos, setServicos] = useState([]);
 
-  const [mobileEdit, setTelefoneEdit] = useState('');
-
-  const handleTelefoneChangeEdit = (e) => {
-    setTelefoneEdit(e.target.value);
-  };
-   
   const Navigate = useNavigate();
 
   const fetchServices = async () => {
@@ -97,21 +91,14 @@ const Settings = () => {
 
   const enviar_dados = () => {
 
-  if(mobileEdit == ""){
-    return
-  }
+    if(selectedButton == null){
 
-  if(selectedButton == null){
-    return
-  }
+      return
 
+    }
 
-  sessionStorage.setItem("confirmacao_identidade_para_servico_selecionado", mobileEdit)
-
-  sessionStorage.setItem("meio_confirmacao_identidade_para_servico_selecionado", selectedButton)
-
-    // Navega para '/business/confirmation-identity' apenas se houver serviços selecionados
-    Navigate('/business/confirmation-identity');
+ 
+    Navigate('/business/payment-success');
   
 };
 
@@ -162,15 +149,39 @@ const [selectedButton, setSelectedButton] = useState(null);
 
 <div className={styles.container_confirmar_identidade}> 
 
-  <div style={{ position: 'relative', marginTop: '20px', fontSize: '14px', textAlign: 'center', width: '100%' }}>CONFIRME SUA IDENTIDADE</div>
+  <div style={{ position: 'relative', marginTop: '20px', fontSize: '14px', textAlign: 'center', width: '100%' }}>REALIZE O PAGAMENTO</div>
 
-  <div style={{ position: 'relative', width: '80%', left: '50%', marginTop: '20px', transform: 'translateX(-50%)' }}>
+  <div style={{ position: 'relative', marginTop: '40px', fontSize: '14px', textAlign: 'center', width: '100%' }}>DETALHES DO AGENDAMENTO</div>
 
-  <TelefoneMaskProfressional value={mobileEdit}  onChange={handleTelefoneChangeEdit} className={styles.container_proximo_cliente} style={{ outline: 'none' }} />
-  
-  </div>
+    <div style={{ position: 'relative', display: 'flex', marginTop: '20px', justifyContent: 'center' }}>
 
-  <div style={{ position: 'relative', display: 'flex', marginTop: '20px', justifyContent: 'center' }}>
+      <ul style={{ padding: 0, margin: 0, width: '90%', border: '1px solid rgba(0, 0, 0, 0.2)' }}>
+
+      <FontAwesomeIcon className={styles.icone_main} icon={faCalendar} style={{ position: 'relative', top: '50%', transform: 'translateY(-50%)', float: 'left', alignItems: 'center', left: '20px', color: '#353738', fontSize: '22px' }} />
+          
+
+      <div style={{ position: 'relative', marginTop: '10px', fontSize: '14px', textAlign: 'center', width: '100%' }}><b style={{ color: 'rgba(0, 0, 0, 0.7)' }}>SERVIÇOS ADICIONADOS</b></div>
+
+      <div style={{ position: 'relative', marginTop: '5px', fontSize: '14px', textAlign: 'center', width: '100%', fontSize: '13px' }}><b style={{ color: 'rgba(0, 0, 0, 0.7)' }}>09:30 - 10:00</b> Exemplo - R$ 40</div>
+
+      <div style={{ position: 'relative', marginTop: '5px', fontSize: '14px', textAlign: 'center', width: '100%', fontSize: '13px' }}><b style={{ color: 'rgba(0, 0, 0, 0.7)' }}>10:00 - 11:00</b> Exemplo - R$ 80</div>
+
+      <div style={{ position: 'relative', marginTop: '10px', fontSize: '14px', textAlign: 'center', width: '100%' }}><b style={{ color: 'rgba(0, 0, 0, 0.7)' }}>DATA</b></div>
+
+      <div style={{ position: 'relative', marginTop: '5px', fontSize: '14px', textAlign: 'center', width: '100%', fontSize: '13px' }}><b style={{ color: 'rgba(0, 0, 0, 0.7)' }}>00/00/0000</b></div>
+
+      <div style={{ position: 'relative', marginTop: '5px', fontSize: '12px', textAlign: 'center', width: '100%', fontSize: '13px' }}><b style={{ color: 'rgba(0, 0, 0, 0.7)' }}>TOTAL: R$ 80</b></div>
+        
+      </ul>
+
+    </div>
+
+    <div style={{ position: 'relative', marginTop: '20px', fontSize: '14px', textAlign: 'center', width: '100%' }}>PAGAMENTO VIA CARTÃO</div>
+
+    <FontAwesomeIcon className={styles.icone_main} icon={faMoneyCheckAlt} style={{ position: 'relative', textAlign: 'center', width: '100%', marginTop: '12px', color: 'rgb(25, 133, 123)', fontSize: '27px' }} />
+
+
+    <div style={{ position: 'relative', display: 'flex', marginTop: '20px', justifyContent: 'center' }}>
 
       <ul style={{ display: 'flex', padding: 0, marginLeft: '11px' }}>
         <li
@@ -183,12 +194,12 @@ const [selectedButton, setSelectedButton] = useState(null);
             textAlign: 'center',
             borderRadius: '5px',
             cursor: 'pointer',
-            backgroundColor: selectedButton === 'SMS' ? '#fff' : 'rgb(25, 133, 123)',
-            border: selectedButton === 'SMS' ? '1px solid rgb(25, 133, 123)' : '2px solid rgb(25, 133, 123)',
+            borderBottom: selectedButton === 'DEBITO' ? '1px solid rgb(25, 133, 123)' : '1px solid #fff',
+            border: 'none',
           }}
-          onClick={() => handleButtonClick('SMS')}
+          onClick={() => handleButtonClick('DEBITO')}
         >
-          <label style={{ position: 'relative', top: '8px', cursor: 'pointer', color: selectedButton === 'SMS' ? 'rgb(25, 133, 123)' : '#fff' }}>SMS</label>
+          <label style={{ position: 'relative', top: '8px', cursor: 'pointer', color: 'rgb(25, 133, 123)' }}>DÉBITO</label>
         </li>
 
         <li
@@ -201,62 +212,43 @@ const [selectedButton, setSelectedButton] = useState(null);
             textAlign: 'center',
             borderRadius: '5px',
             cursor: 'pointer',
-            backgroundColor: selectedButton === 'WHATSAPP' ? '#fff' : 'rgb(25, 133, 123)',
-            border: selectedButton === 'WHATSAPP' ? '1px solid rgb(25, 133, 123)' : '2px solid rgb(25, 133, 123)',
+            borderBottom: selectedButton === 'CREDITO' ? '1px solid rgb(25, 133, 123)' : '1px solid #fff',
+            border: 'none',
           }}
-          onClick={() => handleButtonClick('WHATSAPP')}
+          onClick={() => handleButtonClick('CREDITO')}
         >
-          <label style={{ position: 'relative', top: '8px', cursor: 'pointer', color: selectedButton === 'WHATSAPP' ? 'rgb(25, 133, 123)' : '#fff' }}>WHATSAPP</label>
+          <label style={{ position: 'relative', top: '8px', cursor: 'pointer', color: 'rgb(25, 133, 123)' }}>CRÉDITO</label>
         </li>
       </ul>
 
     </div>
 
-    <div style={{ position: 'relative', marginTop: '20px', fontSize: '14px', textAlign: 'center', width: '100%' }}>CLIQUE EM QUAL DESEJA RECEBER O CÓDIGO DE VERIFICAÇÃO</div>
+     <div style={{ position: 'relative', display: selectedButton === 'DEBITO' ? 'flex' : 'none', marginTop: '20px', justifyContent: 'center' }}>
 
-    <div style={{ position: 'relative', display: 'flex', marginTop: '20px', justifyContent: 'center' }}>
+      <ul style={{ padding: '5px 0px', margin: 0, width: '90%' }}>
+ 
+        <li style={{ listStyle: 'none', width: '100%', height: '12px', backgroundColor: 'rgba(85, 67, 59, 0.11)' }}></li>
 
-      <ul style={{ padding: 0, margin: 0, width: '90%', border: '1px solid rgba(0, 0, 0, 0.2)' }}>
+        <li style={{ listStyle: 'none', marginTop: '12px', width: '100%', height: '10px', backgroundColor: 'rgba(85, 67, 59, 0.11)' }}></li>
 
-      <div style={{ position: 'relative', marginTop: '10px', fontSize: '14px', textAlign: 'center', width: '100%' }}><b style={{ color: 'rgba(0, 0, 0, 0.7)' }}>Preços dos serviços selecionados</b></div>
+        <li style={{ listStyle: 'none', marginTop: '10px', width: '100%', height: '40px', backgroundColor: 'rgba(85, 67, 59, 0.11)' }}></li>
 
-        <div style={{ marginTop: '10px' }}>
-
-        {
-            servicos.map((servico) => ( 
-
-        <div style={{ marginTop: '-15px', width: '100%', display: 'flex', justifyContent: 'center' }}>
-      <ul style={{ display: 'flex', justifyContent: 'center', padding: 0, margin: 0, width: '100%' }}>
-        <li
-          style={{
-            listStyle: 'none',
-            width: '90%',
-            fontSize: '12px',
-            marginTop: '20px',
-            textAlign: 'center',
-            borderRadius: '5px',
-            backgroundColor: 'rgb(25, 133, 123)',
-            padding: '2px 0', 
-            color: '#fff', 
-          }}
-        >
-          <label
-            style={{
-              cursor: 'text',
-              marginTop: '10px',
-              fontSize: '14.5px',
-            }}
-          >
-            SERVIÇO {servico.name} | R${servico.price}
-          </label>
-        </li>
       </ul>
+
     </div>
 
-         ))
-          }
-          <p style={{ marginTop: '30px' }}></p>
-          </div>
+    <div style={{ position: 'relative', display: selectedButton === 'CREDITO' ? 'flex' : 'none', marginTop: '20px', justifyContent: 'center' }}>
+
+      <ul style={{ padding: '5px 0px', margin: 0, width: '90%' }}>
+ 
+        <li style={{ listStyle: 'none', width: '100%', height: '12px', backgroundColor: 'rgba(85, 67, 59, 0.11)' }}></li>
+
+        <li style={{ listStyle: 'none', marginTop: '12px', width: '100%', height: '10px', backgroundColor: 'rgba(85, 67, 59, 0.11)' }}></li>
+
+        <li style={{ listStyle: 'none', marginTop: '12px', width: '100%', height: '12px', backgroundColor: 'rgba(85, 67, 59, 0.11)' }}></li>
+
+        <li style={{ listStyle: 'none', marginTop: '12px', width: '100%', height: '10px', backgroundColor: 'rgba(85, 67, 59, 0.11)' }}></li>
+
       </ul>
 
     </div>

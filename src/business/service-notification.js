@@ -111,7 +111,7 @@ const Settings = () => {
     return
   } 
   
-    Navigate('/dashboard');
+    Navigate('/business/service-payment');
   
 }; 
 

@@ -5,8 +5,9 @@ import Logo from './../img/logo.svg'
 import LogoDash from './../img/logo-dashboard.svg'
 import NoImg from './../img/no-img.png'
 import { Link, useNavigate } from 'react-router-dom';
-import  styles from './../css/bio.module.css';
+import  styles from './../css/payment-pix.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import TelefoneMaskProfressional from './../mask-input-edit-professional/index';
 import { faHome, faWallet, faCalendar, faTasks, faCog, faBell, faImages, faUserCircle, faClock, faLock, faChevronLeft, faChevronRight, faPlusCircle, faSortAmountUp, faEuroSign, faQrcode, faPaperPlane, faCoins, faCopy, faBarcode, faMoneyCheckAlt, faHandHoldingUsd, faDatabase, faBalanceScale, faCheck, faUserNurse, faToolbox, faStar, faFileContract, faQuestionCircle, faStore, faTools    } from '@fortawesome/free-solid-svg-icons';
 
 import { Bar } from 'react-chartjs-2';
@@ -17,7 +18,7 @@ const Settings = () => {
   const [dados, setDados] = useState('');
 
   const [servicos, setServicos] = useState([]);
-   
+
   const Navigate = useNavigate();
 
   const fetchServices = async () => {
@@ -37,9 +38,9 @@ const Settings = () => {
       }
 
       const data = await response.json();
-      setServicos(data.data.data);
-
-      //console.log(data.data.data)
+      const id_servico_selecionado = sessionStorage.getItem('id_servico_selecionado')
+      const filteredData = data.data.data.filter(item => id_servico_selecionado.includes(item.id));
+      setServicos(filteredData);
 
       //console.log('Dados atualizados:', data);
     } catch (error) {
@@ -65,31 +66,12 @@ const Settings = () => {
     // Chama a função de fetch inicial
     fetchServices();
 
-    // Define o intervalo para chamar a API a cada 5 segundos (ou o intervalo desejado)
-    const intervalId = setInterval(fetchServices, 5000);
 
-    // Limpa o intervalo quando o componente é desmontado
-    return () => clearInterval(intervalId);
   }, []);
 
 
   const imgLogado = /*dados.img ||*/ 'https://centrechurch.org/wp-content/uploads/2022/03/img-person-placeholder.jpeg';
   const nomeLogado = dados.name || '';
-
-
-  const handleClick = (id) => {
-
-
-    // Obtem os IDs do sessionStorage ou inicia um array vazio
-    const storedIds = JSON.parse(sessionStorage.getItem('id_servico_selecionado')) || [];
-
-    // Adiciona ou remove o ID com base na presença no array
-    if (storedIds.includes(id)) {
-      sessionStorage.setItem('id_servico_selecionado', JSON.stringify(storedIds.filter((storedId) => storedId !== id)));
-    } else {
-      sessionStorage.setItem('id_servico_selecionado', JSON.stringify([...storedIds, id]));
-    }
-  };
 
   const [selectedServiceIds, setSelectedServiceIds] = useState([]);
 
@@ -103,26 +85,34 @@ const Settings = () => {
     // Chama a função inicialmente
     updateSelectedServiceIds();
 
-    // Configura um setInterval para verificar a cada 1 segundo
-    const intervalId = setInterval(updateSelectedServiceIds, 1000);
 
-    // Limpa o interval quando o componente é desmontado
-    return () => clearInterval(intervalId);
   }, []);
 
 
   const enviar_dados = () => {
-  const selectedServiceIds = JSON.parse(sessionStorage.getItem('id_servico_selecionado')) || [];
 
-  // Verifica se o array não está vazio
-  if (selectedServiceIds.length > 0) {
-    // Navega para '/business/confirmation-service' apenas se houver serviços selecionados
-    Navigate('/business/confirmation-service');
-  } else {
-    // Faça algo se o array estiver vazio, se necessário
-    console.log('Nenhum serviço selecionado.');
+    alert(selectedButton)
+
+ 
+  if(selectedButton == "PIX"){
+    return
+  }else{
+    
   }
+
+
+
+    // Navega para '/business/confirmation-identity' apenas se houver serviços selecionados
+   // Navigate('/business/confirmation-identity');
+  
 };
+
+
+const [selectedButton, setSelectedButton] = useState(null);
+
+  const handleButtonClick = (buttonType) => {
+    setSelectedButton(buttonType);
+  };
 
   return (
     <>
@@ -161,66 +151,57 @@ const Settings = () => {
 
 <p style={{ marginTop: '30px' }}></p>
 
- {
- 
-servicos.map((servico) => ( 
 
-<div onClick={() => handleClick(servico.id)} className={styles.container_proximo_cliente} style={{textDecoration: 'none', heiht: '150px', backgroundColor: selectedServiceIds.includes(servico.id) ? '#fff' : '', border: selectedServiceIds.includes(servico.id) ? '2px solid rgb(25, 133, 123)' : '' }}> 
+<div className={styles.container_confirmar_identidade}> 
 
-<li style={{
-  width: '100%',
-  textAlign: 'center',
-  listStyle: 'none',
-  marginTop: '10px',
-}}>
+  <div style={{ position: 'relative', marginTop: '20px', fontSize: '14px', textAlign: 'center', width: '100%' }}>REALIZE O PAGAMENTO</div>
 
-  <label style={{
-    position: 'relative',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'left',
-    color: '#fff',
-    width: '120px',
-    left: '15px',
-    backgroundColor: selectedServiceIds.includes(servico.id) ? 'rgb(46, 125, 50)' : 'rgba(20, 99, 92, 1)',
-    borderRadius: '40px',
-    padding: '0px 25px',
-    marginRight: 'auto',
-    marginTop: '10px',
-    textAlign: 'center',
-  }}>
-    <FontAwesomeIcon className={styles.iconesino} icon={faHandHoldingUsd} />
-    <label style={{ position: 'relative', marginLeft: '5px', top: '5px', fontSize: '12px' }}>R${servico.price}</label>
-  </label>
+  <div style={{ position: 'relative', marginTop: '40px', fontSize: '14px', textAlign: 'center', width: '100%' }}>DETALHES DO AGENDAMENTO</div>
 
-  <label style={{
-    position: 'relative',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'left',
-    color: '#fff',
-    width: '120px',
-    left: '15px',
-    backgroundColor: selectedServiceIds.includes(servico.id) ? 'rgb(46, 125, 50)' : 'rgba(20, 99, 92, 1)',
-    borderRadius: '40px',
-    padding: '0px 25px',
-    marginTop: '10px', // Centraliza horizontalmente com 'auto' no margin
-    marginRight: 'auto',
-    textAlign: 'center',
-  }}>
-    <FontAwesomeIcon className={styles.iconesino} style={{ fontSize: '13px', marginTop: '5px', marginLeft: '-15px' }} icon={faClock} />
-    <label style={{ position: 'relative', marginLeft: '5px', top: '5px', fontSize: '12px' }}>{servico.interval_time} min</label>
-  </label>
+    <div style={{ position: 'relative', display: 'flex', marginTop: '20px', justifyContent: 'center' }}>
 
-  <div className={styles.descs} style={{ position: 'relative', width: '100%', bottom: '15px', marginTop: '30px', color: selectedServiceIds.includes(servico.id) ? 'rgb(46, 125, 50)' : '' }}><b>{servico.name}</b> <FontAwesomeIcon className={styles.icone_main} icon={faCheck} style={{ position: 'relative', fontSize: '20px', bottom: '70px', right: '20px', opacity: selectedServiceIds.includes(servico.id) ? 1 : 0 }} /> </div>
+      <ul style={{ padding: 0, margin: 0, width: '90%', border: '1px solid rgba(0, 0, 0, 0.2)' }}>
 
-  
+      <FontAwesomeIcon className={styles.icone_main} icon={faCalendar} style={{ position: 'relative', top: '50%', transform: 'translateY(-50%)', float: 'left', alignItems: 'center', left: '20px', color: '#353738', fontSize: '22px' }} />
+          
 
-</li>
+      <div style={{ position: 'relative', marginTop: '10px', fontSize: '14px', textAlign: 'center', width: '100%' }}><b style={{ color: 'rgba(0, 0, 0, 0.7)' }}>SERVIÇOS ADICIONADOS</b></div>
+
+      <div style={{ position: 'relative', marginTop: '5px', fontSize: '14px', textAlign: 'center', width: '100%', fontSize: '13px' }}><b style={{ color: 'rgba(0, 0, 0, 0.7)' }}>09:30 - 10:00</b> Exemplo - R$ 40</div>
+
+      <div style={{ position: 'relative', marginTop: '5px', fontSize: '14px', textAlign: 'center', width: '100%', fontSize: '13px' }}><b style={{ color: 'rgba(0, 0, 0, 0.7)' }}>10:00 - 11:00</b> Exemplo - R$ 80</div>
+
+      <div style={{ position: 'relative', marginTop: '10px', fontSize: '14px', textAlign: 'center', width: '100%' }}><b style={{ color: 'rgba(0, 0, 0, 0.7)' }}>DATA</b></div>
+
+      <div style={{ position: 'relative', marginTop: '5px', fontSize: '14px', textAlign: 'center', width: '100%', fontSize: '13px' }}><b style={{ color: 'rgba(0, 0, 0, 0.7)' }}>00/00/0000</b></div>
+
+      <div style={{ position: 'relative', marginTop: '5px', fontSize: '12px', textAlign: 'center', width: '100%', fontSize: '13px' }}><b style={{ color: 'rgba(0, 0, 0, 0.7)' }}>TOTAL: R$ 80</b></div>
+        
+      </ul>
+
+    </div>
+
+    <div style={{ position: 'relative', marginTop: '20px', fontSize: '14px', textAlign: 'center', width: '100%' }}>PAGAMENTO VIA PIX (COPIA E COLA)</div>
+
+    <FontAwesomeIcon className={styles.icone_main} icon={faCoins} style={{ position: 'relative', textAlign: 'center', width: '100%', marginTop: '12px', color: 'rgb(25, 133, 123)', fontSize: '27px' }} />
+
+    <div style={{ position: 'relative', marginTop: '20px', fontSize: '11px', textAlign: 'center', width: '100%' }}>COPIE O CÓDIGO ABAIXO E COLE NO SEU BANCO PARA REALIZAR O PAGAMENTO (CÓDIGO EXPIRA EM 30 MINUTOS)</div>
+
+     <div style={{ position: 'relative', display: 'flex', marginTop: '20px', justifyContent: 'center' }}>
+
+      <ul style={{ padding: '5px 0px', margin: 0, width: '90%', border: '1px solid rgba(0, 0, 0, 0.2)' }}>
+
+      <label style={{ position: 'relative', left: '50%', width: '80%', fontSize: '12px', color: '#353738', textAlign: 'center', transform: 'translateX(-50%)' }}>HKDSAJHJDA-JFDJHJH-3954985498- CKJJDKJDCJHC123454545</label>
+
+      <FontAwesomeIcon className={styles.icone_main} icon={faCopy} style={{ position: 'relative', top: '50%', transform: 'translateY(-50%)', float: 'right', cursor: 'pointer', alignItems: 'center', right: '20px', color: '#353738', fontSize: '18px' }} />
+          
+      </ul>
+
+    </div>
+
+    <p style={{ marginTop: '30px' }}></p>
 
 </div>
-
-))}
 
 <li onClick={enviar_dados} className={styles.container_proximo_cliente} style={{ border: 'none', marginTop: '5px', borderRadius: '5px', height: '40px', display: 'flex', alignItems: 'center' }}>
 
